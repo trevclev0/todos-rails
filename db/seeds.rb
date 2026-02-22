@@ -7,3 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Todo.create!(title: "Milk", description: "Buy milk from the store", completed: true)
+Todo.create!(title: "Eggs", description: "Buy eggs from the store", completed: false)
+Todo.create!(title: "Bread", description: "Buy bread from the store", completed: false)
