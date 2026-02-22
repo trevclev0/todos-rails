@@ -1,6 +1,6 @@
-<ul>
+<ul class="list-group">
   <% @todos.each do |todo| %>
-    <li>
+    <li class="list-group-item">
       <h2><%= link_to todo.title, todo_path(todo) %></h2>
       <%= link_to "Edit", edit_todo_path(todo), aria: { label: "Edit #{todo.title}" } %>
     </li>
