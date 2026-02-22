@@ -2,8 +2,8 @@
   <h1><%= @todo.title %></h1>
   <p><strong>Status:</strong> <%= @todo.completed ? "Completed" : "Incomplete" %></p>
   <%= simple_format @todo.description %>
-  <div style="margin-top: 1rem;">
-    <%= link_to "Edit", edit_todo_path(`@todo`) %> |
-    <%= link_to "Go Back", todos_path %>
+  <div class="btn-group" role="group" aria-label="Todo actions">
+    <%= link_to "Go Back", todos_path, class: "btn btn-secondary" %>
+    <%= link_to "Edit", edit_todo_path(@todo), class: "btn btn-primary" %>
   </div>
 </div>
