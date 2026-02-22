@@ -2,6 +2,8 @@
   <h1><%= @todo.title %></h1>
   <p><strong>Status:</strong> <%= @todo.completed ? "Completed" : "Incomplete" %></p>
   <%= simple_format @todo.description %>
-  <%= link_to "Edit", edit_todo_path(@todo) %>
-  <%= link_to "Go Back", todos_path %>
+  <div style="margin-top: 1rem;">
+    <%= link_to "Edit", edit_todo_path(`@todo`) %> |
+    <%= link_to "Go Back", todos_path %>
+  </div>
 </div>
