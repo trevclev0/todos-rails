@@ -1,8 +1,8 @@
 <ul>
-    <% @todos.each do |todo| %>
-        <li>
-            <h2><%= link_to todo.title, todo_path(todo) %></h2>
-            <%= link_to "Edit", edit_todo_path(todo), aria: { label: "Edit #{todo.title}" } %>
-        </li>
-    <% end %>
+  <% @todos.each do |todo| %>
+    <li>
+      <h2><%= link_to todo.title, todo_path(todo) %></h2>
+      <%= link_to "Edit", edit_todo_path(todo), aria: { label: "Edit #{todo.title}" } %>
+    </li>
+  <% end %>
 </ul>
