@@ -9,6 +9,16 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
+  # TODO: Define routes for register, login, logout, and CRUD operations for todos
+  resources :todos
+
+  get "register", to: "authentication#register"
+  post "register", to: "authentication#create"
+
+  get "login", to: "authentication#login"
+  post "login", to: "authentication#process_login"
+  delete "logout", to: "authentication#logut"
+
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "todos#index"
 end

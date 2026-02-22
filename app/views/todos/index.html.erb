@@ -1,0 +1,8 @@
+<!-- TODO: List all todos with links to view and edit each one -->
+<ul>
+    <% @todos.each do |todo| %>
+        <li>
+            <h2><%= todo.title %></h2>
+        </li>
+    <% end %>
+</ul>
