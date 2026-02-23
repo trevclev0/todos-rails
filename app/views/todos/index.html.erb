@@ -4,9 +4,14 @@
 <% else %>
 <ul class="list-group">
   <% @todos.each do |todo| %>
-    <li class="list-group-item">
-      <h2><%= link_to todo.title, todo_path(todo) %></h2>
-      <%= link_to "Edit", edit_todo_path(todo), aria: { label: "Edit #{todo.title}" } %>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <h5 class="mb-0"><%= link_to todo.title, todo_path(todo) %></h5>
+      </div>
+
+      <div>
+        <%= link_to "Edit", edit_todo_path(todo), aria: { label: "Edit #{todo.title}" } %>
+      </div>
     </li>
   <% end %>
 </ul>
