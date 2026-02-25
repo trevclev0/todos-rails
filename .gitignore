@@ -35,3 +35,9 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+<<<<<<< HEAD
+=======
+
+# Ignore generated JavaScript files
+vendor/javascript/*
+>>>>>>> 164bf50 (feat: configure Boostrap properly for this Rails app)
