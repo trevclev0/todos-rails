@@ -29,17 +29,17 @@
       <%= link_to "Rails Todos", root_path, class: "navbar-brand" %>
     </nav>
     <main class="container my-4 flex-grow-1">
-      <% if notice %>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <%= notice %>
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-      <% end %>
-
-      <% if alert %>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <%= alert %>
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <% flash.each do |type, message| %>
+        <%
+          alert_class = case type.to_s
+          when 'notice' then 'success'
+          when 'alert' then 'danger'
+          else 'info'
+          end
+        %>
+        <div class="alert alert-<%= alert_class %> alert-dismissible fade show" role="alert">
+          <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       <% end %>
 
