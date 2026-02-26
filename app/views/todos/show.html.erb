@@ -1,6 +1,6 @@
 <div>
   <h1><%= @todo.title %></h1>
-  <p><strong>Status:</strong> <%= @todo.completed ? "☑ Completed" : "☐ Incomplete" %></p>
+  <p><strong>Status: </strong><%= format_todo_status(@todo) %></p>
   <%= simple_format(@todo.description) %>
   <div class="btn-group" role="group" aria-label="Todo actions">
     <%= link_to "Go Back", todos_path, class: "btn btn-outline-secondary" %>
