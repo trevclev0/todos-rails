@@ -30,14 +30,7 @@
     </nav>
     <main class="container my-4 flex-grow-1">
       <% flash.each do |type, message| %>
-        <%
-          alert_class = case type.to_s
-          when 'notice' then 'success'
-          when 'alert' then 'danger'
-          else 'info'
-          end
-        %>
-        <div class="alert alert-<%= alert_class %> alert-dismissible fade show" role="alert">
+        <div class="alert alert-<%= bootstrap_class_for_flash(type) %> alert-dismissible fade show" role="alert">
           <%= message %>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
