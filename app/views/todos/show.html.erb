@@ -1,1 +1,9 @@
-<!-- TODO: Display the details of a single todo with links to edit and go back --
+<div>
+  <h1><%= @todo.title %></h1>
+  <p><strong>Status: </strong><%= format_todo_status(@todo) %></p>
+  <%= simple_format(@todo.description) %>
+  <div class="btn-group" role="group" aria-label="Todo actions">
+    <%= link_to "Go Back", todos_path, class: "btn btn-outline-secondary" %>
+    <%= link_to "Edit", edit_todo_path(@todo), class: "btn btn-outline-primary" %>
+  </div>
+</div>

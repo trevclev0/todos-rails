@@ -1,9 +1,18 @@
-<!-- TODO: List all todos with links to view and edit each one -->
-<ul>
+<h1>Todos</h1>
+<% if @todos.empty? %>
+  <p>No todos found.</p>
+<% else %>
+  <ul class="list-group list-group-flush">
     <% @todos.each do |todo| %>
-        <li>
-            <h2><%= link_to todo.title, todo_path(todo) %></h2>
-            <%= link_to "Edit", edit_todo_path(todo), aria: { label: "Edit #{todo.title}" } %>
-        </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+        <div>
+          <h5 class="mb-0"><%= link_to todo.title, todo_path(todo) %></h5>
+        </div>
+
+        <div>
+          <%= link_to "Edit", edit_todo_path(todo), aria: { label: "Edit #{todo.title}" } %>
+        </div>
+      </li>
     <% end %>
-</ul>
+  </ul>
+<% end %>
