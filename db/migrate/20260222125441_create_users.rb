@@ -1,4 +1,3 @@
-# TODO: Write a migration to create a todos table with title and description
 class CreateUsers < ActiveRecord::Migration[8.0]
   def change
     create_table :users do |t|
