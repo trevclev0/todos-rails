@@ -1,1 +1,14 @@
-<!-- TODO: Create a form for user registration with fields for username and password -->
+<h1>Register</h1>
+<%= form_with model: @user, url: register_path, method: :post, local: true do |form| %>
+  <div>
+      <%= form.label :username %>
+      <%= form.text_field :username %>
+  </div>
+  <div>
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+  </div>
+  <div>
+    <%= form.submit 'Register' %>
+  </div>
+<% end %>
