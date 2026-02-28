@@ -11,6 +11,6 @@ class User < ApplicationRecord
 
   validates :password,
     length: { minimum: 8 },
-    format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).*\z/, message: "must include at least one letter and number" },
+    format: { with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*\z/, message: "must include at least one lowercase letter, one uppercase letter, and one number" },
     if: :password_digest_changed?
 end
