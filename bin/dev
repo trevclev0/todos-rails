@@ -1,11 +1,3 @@
 #!/usr/bin/env sh
 
-<<<<<<< HEAD
-=======
-if ! gem list foreman -i --silent; then
-  echo "Installing foreman..."
-  gem install foreman
-fi
-
->>>>>>> 164bf50 (feat: configure Boostrap properly for this Rails app)
 exec foreman start -f Procfile.dev "$@"
