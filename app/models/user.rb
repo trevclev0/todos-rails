@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  before_save { self.username = username.downcase }
+  normalizes :username, with: ->(username) { username.downcase }
 
   validates :username,
     presence: true,
