@@ -59,6 +59,7 @@ group :development do
   gem "web-console"
   gem "foreman"
   gem "rubocop"
+  gem "erb_lint", require: false
 end
 
 group :test do
