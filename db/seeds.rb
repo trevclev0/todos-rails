@@ -10,10 +10,9 @@
 #
 
 seed_username = ENV.fetch("SEED_USERNAME") { raise "SEED_USERNAME is not set!" }
-seed_password = ENV.fetch("SEED_USER_PASSWORD") { raise "SEED_USER_PASSWORD is not set!" }
 
 user = User.find_or_create_by!(username: seed_username)
-user.update!(password: seed_password)
+user.update!(password: ENV.fetch("SEED_USER_PASSWORD") { raise "SEED_USER_PASSWORD is not set!" })
 
 todos = [
   { title: "Milk",  description: "Buy milk from the store",  completed: true  },
