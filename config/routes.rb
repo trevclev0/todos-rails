@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get "login", to: "authentication#login"
   post "login", to: "authentication#process_login"
-  delete "logout", to: "authentication#logut"
+  delete "logout", to: "authentication#logout"
 
   # Defines the root path route ("/")
   root "todos#index"
