@@ -1,4 +1,7 @@
 <h1>Todos</h1>
+<div class="btn-group" role="group" aria-label="Todo actions">
+  <%= link_to "Add Todo", new_todo_path, class: "btn btn-outline-primary" %>
+</div>
 <% if @todos.empty? %>
   <p>No todos found.</p>
 <% else %>
