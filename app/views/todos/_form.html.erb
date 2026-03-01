@@ -1,3 +1,14 @@
+<% if todo.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+    <ul>
+      <% todo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with model: todo, local: true do |form| %>
   <div>
     <%= form.label :title %>
