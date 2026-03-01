@@ -2,6 +2,8 @@ class TodosController < ApplicationController
   before_action :require_login
   before_action :set_todo, only: %i[show edit update destroy]
 
+  rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found
+
   def index
     @todos = current_user.todos
   end
@@ -37,6 +39,10 @@ class TodosController < ApplicationController
   end
 
   private
+
+  def handle_not_found
+    redirect_to todos_path, alert: "Todo not found."
+  end
 
   def set_todo
     @todo = current_user.todos.find(params[:id])
