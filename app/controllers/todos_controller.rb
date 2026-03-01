@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: %i[show edit update destroy]
   before_action :require_login
+  before_action :set_todo, only: %i[show edit update destroy]
 
   def index
     @todos = Todo.all
