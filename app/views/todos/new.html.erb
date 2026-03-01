@@ -1,1 +1,3 @@
-<!-- TODO: Create a form view for adding a new todo -->
+<h1><%= todo_form_title(@todo) %></h1>
+<%= render 'form', todo: @todo %>
+<%= link_to 'Back', todos_path %>
