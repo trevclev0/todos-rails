@@ -13,7 +13,7 @@ class TodosController < ApplicationController
   def edit; end
 
   def new
-    @todo = Todo.new
+    @todo = current_user.todos.build
   end
 
   def create
