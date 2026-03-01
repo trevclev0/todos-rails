@@ -1,9 +1,11 @@
-# TODO: Implement TodosController with actions for CRUD operations
 class TodosController < ApplicationController
+  before_action :require_login
   before_action :set_todo, only: %i[show edit update destroy]
 
+  rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found
+
   def index
-    @todos = Todo.all
+    @todos = current_user.todos
   end
 
   def show; end
@@ -11,11 +13,11 @@ class TodosController < ApplicationController
   def edit; end
 
   def new
-    @todo = Todo.new
+    @todo = current_user.todos.build
   end
 
   def create
-    @todo = Todo.new(todo_params)
+    @todo = current_user.todos.build(todo_params)
     if @todo.save
       redirect_to @todo, notice: "Todo created!"
     else
@@ -38,11 +40,15 @@ class TodosController < ApplicationController
 
   private
 
+  def handle_not_found
+    redirect_to todos_path, alert: "Todo not found."
+  end
+
   def set_todo
-    @todo = Todo.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
   end
 
   def todo_params
-    params.require(:todo).permit(:title, :description)
+    params.require(:todo).permit(:title, :description, :completed)
   end
 end
