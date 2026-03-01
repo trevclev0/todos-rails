@@ -1,4 +1,3 @@
-# TODO: Create AuthenticationController with actions for register, create, login, process_login, and logout
 class AuthenticationController < ApplicationController
   def register
     @user = User.new
