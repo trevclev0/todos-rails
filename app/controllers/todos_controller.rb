@@ -3,7 +3,7 @@ class TodosController < ApplicationController
   before_action :set_todo, only: %i[show edit update destroy]
 
   def index
-    @todos = Todo.all
+    @todos = current_user.todos
   end
 
   def show; end
@@ -15,7 +15,7 @@ class TodosController < ApplicationController
   end
 
   def create
-    @todo = Todo.new(todo_params)
+    @todo = current_user.todos.create(todo_params)
     if @todo.save
       redirect_to @todo, notice: "Todo created!"
     else
@@ -39,7 +39,7 @@ class TodosController < ApplicationController
   private
 
   def set_todo
-    @todo = Todo.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
   end
 
   def todo_params
