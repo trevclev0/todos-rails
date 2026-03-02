@@ -1,6 +1,11 @@
 class CleanupTodosWithNullUserId < ActiveRecord::Migration[8.1]
+  class MigrationTodo < ActiveRecord::Base
+    self.table_name = "todos"
+  end
   def up
-    execute "DELETE FROM todos WHERE user_id IS NULL"
+    MigrationTodo.unscoped.where(user_id: nil).in_batches(of: 1_000) do |batch|
+      batch.delete_all
+    end
   end
 
   def down
